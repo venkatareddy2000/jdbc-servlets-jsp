@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="5.0">
+	<display-name>ServletsBasics</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
+	<!-- After creating a servlet class we need to configure the servlet class 
+		in the deployment instructor which is web.xml file -->
+
+	<!--To configure the servlet we need to create servlet and servlet-mapping 
+		elements as show below -->
+	<servlet>
+		<!-- Need to give the servlet name as per our wish -->
+		<servlet-name>HelloWorld</servlet-name>
+		<!-- Give the full class name of the servlet including path of the package 
+			for which you are going to configure the servlet -->
+		<servlet-class>com.servlets.basics.HelloWorld</servlet-class>
+	</servlet>
+	<!-- Map with the HelloWorld servlet and create a cusotm url-pattern -->
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AddServlet</servlet-name>
+		<servlet-class>com.servlets.basics.AdditionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddServlet</servlet-name>
+		<url-pattern>/addition</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Multiplication</servlet-name>
+		<servlet-class>com.servlets.basics.MultiplicationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Multiplication</servlet-name>
+		<url-pattern>/multiplication</url-pattern>
+	</servlet-mapping>
+
+</web-app>
+
+<!-- When ever a browser send a request to the server the server will search 
+	for the uri in the web.xml file and load the servlet that is mapping to that 
+	uri and sends back the response that is present in the service method of 
+	the servlet -->
